@@ -51,10 +51,6 @@ We’ll use 4 swimlanes in the BPMN/UML diagram:
 Member
 
 Church Staff
-Database
-Event system
-![Image](https://github.com/user-attachments/assets/3be25252-3997-4702-a52a-fdee4229bc3b)
-
 
 Database
 
@@ -62,3 +58,65 @@ Event System
 
 Each lane will clearly show who is responsible for which part of the process.
 
+![Image](https://github.com/user-attachments/assets/3be25252-3997-4702-a52a-fdee4229bc3b)
+This Business Process Model and Notation (BPMN) diagram illustrates the flow of the Member 
+Registration and Event Management process within a Church Management System. It is 
+structured using four swimlanes: Member, Church Staff, Database, and Event System, 
+representing the key actors and systems involved.
+The process begins with a new member filling out a digital registration form. Upon submission, 
+the church staff reviews the form and either approves or rejects the registration. If approved, the 
+member's data is saved in the church database, and they are assigned to a relevant ministry or 
+group.
+The member is then notified of upcoming events and given the option to sign up. The event 
+system checks for capacity and updates attendance records. Throughout the process, data is 
+stored and accessed through the MIS, allowing for real-time updates and accurate tracking.
+This BPMN model supports MIS functions by:
+ Automating data collection and reducing manual errors
+ Providing a centralized information flow
+ Supporting decision-making for staff via real-time dashboards
+ Enhancing operational efficiency in managing people and events
+By clearly visualizing how users, staff, and systems interact, this process model demonstrates 
+how MIS contributes to organized, data-driven church operations.
+
+# ✅ Phase III: Logical Model Design – Summary
+This phase involves creating a detailed logical data model that aligns with your problem statement and business process model.
+
+# 1. Entity-Relationship (ER) Model
+Defined key entities: Member, Ministry, Membership, Event, Attendance, Offering.
+
+Specified attributes with appropriate data types (e.g., VARCHAR2, DATE, NUMBER).
+
+Identified primary keys (PKs) and foreign keys (FKs) to establish clear relationships.
+
+# 2. Relationships & Constraints
+Established relationships:
+
+Many-to-many: Member ↔ Ministry via Membership.
+
+Many-to-many: Member ↔ Event via Attendance.
+
+One-to-many: Member → Offering.
+
+Applied constraints: NOT NULL, UNIQUE, CHECK, and DEFAULT to ensure data integrity.
+
+# 3. Normalization
+Ensured the model is in Third Normal Form (3NF):
+
+Removed redundancy.
+
+Ensured attributes depend only on primary keys.
+
+No transitive dependencies.
+
+# 4. Handling Real-World Scenarios
+The model supports:
+
+Multi-ministry memberships.
+
+Event tracking and attendance.
+
+Multiple offering types.
+
+Extensible for future features like member roles or statuses.
+
+# 5. Presentation & Feedback
