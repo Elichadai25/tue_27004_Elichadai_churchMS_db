@@ -57,5 +57,4 @@ Database
 Event System
 
 Each lane will clearly show who is responsible for which part of the process.
-![Flowchart of Church Member Registration (1) (1)](https://github.com/user-attachments/assets/7deeb9bc-4454-49a5-a3c3-cedae23643eb)
 
