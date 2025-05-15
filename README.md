@@ -51,6 +51,10 @@ We’ll use 4 swimlanes in the BPMN/UML diagram:
 Member
 
 Church Staff
+Database
+Event system
+![Image](https://github.com/user-attachments/assets/3be25252-3997-4702-a52a-fdee4229bc3b)
+
 
 Database
 
