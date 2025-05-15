@@ -13,11 +13,8 @@ Many churches rely on spreadsheets or manual records, leading to inefficiency an
 This system will be used by churches to streamline administrative tasks, ensuring accurate record-keeping and automation of processes.
 # Target Users:
 Church administrators, pastors, and members who need access to services like event registrations and donation tracking.
-# 📌 Problem Summary – Church Management System
-Traditional church management often relies on manual paperwork, fragmented tools, and informal tracking methods. This creates operational bottlenecks, data inconsistency, and limited oversight across essential functions such as membership tracking, event planning, donations, and volunteer coordination.
 
-To address these challenges, this project proposes a fully integrated Church Management System built using Oracle PL/SQL. The system is designed to centralize core activities in a relational database environment, providing automated workflows, accurate recordkeeping, and robust access control.
-
+# ✅ PHASE II: Business Process Modeling (Church Management System - MIS)
 # 🔹 1. Define the Scope
 Business Process: Member Registration and Event Management
 
