@@ -120,3 +120,4 @@ Multiple offering types.
 Extensible for future features like member roles or statuses.
 
 # 5. Presentation & Feedback
+![Image](https://github.com/user-attachments/assets/f6f86b50-55c6-4d61-8c24-dc03ce495564)
