@@ -8,6 +8,17 @@ CREATE PLUGGABLE DATABASE Tue_27004_Elichadai_churchMS_db
 
 ALTER PLUGGABLE DATABASE Tue_27004_Elichadai_churchMS_db OPEN;
 ALTER PLUGGABLE DATABASE Tue_27004_Elichadai_churchMS_db SAVE STATE;
+CREATE TABLE Members (
+    member_id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    first_name VARCHAR2(50) NOT NULL,
+    last_name VARCHAR2(50) NOT NULL,
+    gender CHAR(1) CHECK (gender IN ('M', 'F')),
+    date_of_birth DATE,
+    email VARCHAR2(100) UNIQUE,
+    phone VARCHAR2(15),
+    join_date DATE DEFAULT SYSDATE
+);
+
 
 CREATE TABLE Donation (
     donation_id         NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
