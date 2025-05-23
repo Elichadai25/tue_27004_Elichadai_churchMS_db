@@ -122,23 +122,22 @@ Extensible for future features like member roles or statuses.
 # 5. Presentation & Feedback
 ![Image](https://github.com/user-attachments/assets/f6f86b50-55c6-4d61-8c24-dc03ce495564)
 
+## ✅ PHASE IV: Database Creation and Naming
+📌 Objective
+Create a dedicated pluggable database (PDB) with proper naming and super admin access.
 
- ## ✅ Phase IV:Pluggable Database Creation and Naming
-🧩 Objective
-Set up a dedicated Pluggable Database (PDB) for the Church MS project to isolate development and data.
+📄 Actions Taken
+Created PDB: Tue_27004_Elichadai_churchMS_db
 
-🔧 Tasks Completed
-PDB Created: Tue_27004_Elichadai_churchMS_db
+Created Admin User: Elichadai
 
-Admin User: Elichadai with password Elichadai
+Assigned Role: DBA
 
-Super Admin Role Granted: DBA
+Configured File Name Convert
 
-Container Changed to PDB
+Opened and Saved PDB State
 
-State Saved for automatic startup
-
-🛠 SQL Scripts
+🧾 SQL Used
 sql
 Copy
 Edit
@@ -152,65 +151,64 @@ CREATE PLUGGABLE DATABASE Tue_27004_Elichadai_churchMS_db
 
 ALTER PLUGGABLE DATABASE Tue_27004_Elichadai_churchMS_db OPEN;
 ALTER PLUGGABLE DATABASE Tue_27004_Elichadai_churchMS_db SAVE STATE;
-## ✅ Phase V: Table Implementation and Data Insertion
-🧩 Objective
-Physically implement the Church MS schema with all required tables and seed data.
+## ✅ PHASE V: Table Implementation and Data Insertion
+📌 Objective
+Design and populate physical tables aligned with the logical structure of the Church MS system.
 
-📁 Tables Created
-Members
+📄 Tables Created
+members
 
-Pastors
+pastors
 
-Services
+services
 
-Offerings
+offerings
 
-Donations
+donations
 
-Attendance
+attendance
 
-Events
+events
 
-🧪 Sample Insertions
-Inserted at least 3 valid records into each table to simulate real church operations.
+🧪 Sample Data Inserted
+3+ realistic entries per table
+
+Example:
 
 sql
 Copy
 Edit
--- Sample Member
+-- Members
 INSERT INTO members (full_name, gender, date_of_birth, contact_number, email)
 VALUES ('John Doe', 'Male', TO_DATE('1990-04-15', 'YYYY-MM-DD'), '0788000000', 'johndoe@gmail.com');
 
--- Sample Attendance
+-- Attendance
 INSERT INTO attendance (member_id, service_date, service_type, status, remarks)
 VALUES (1, TO_DATE('2025-05-05', 'YYYY-MM-DD'), 'Sunday Worship', 'Present', 'On time');
-## ✅ Phase VI: Database Interaction and Transactions
-🧩 Objective
-Support real-world database operations and ensure modular interaction via PL/SQL.
+## ✅ PHASE VI: Database Interaction and Transactions
+📌 Objective
+Implement real-life DML/DDL operations with procedures, functions, exception handling, and packages.
 
-🛠 Tasks Completed
-✅ DDL/DML: Insert, Update, Delete, Create, Alter
+📄 Tasks Performed
+DML Operations: INSERT, UPDATE, DELETE
 
-✅ Procedures
+DDL Operations: CREATE, ALTER
 
-update_attendance_status
+Procedures Created: update_attendance_status
 
-✅ Functions
+Functions Created: get_total_donations
 
-get_total_donations
+Cursor Usage: Data retrieval
 
-✅ Cursors used for looping through member data
+Exception Handling: For data safety
 
-✅ Exception Handling for safe execution
+Packages: church_pkg for code modularity
 
-✅ Packages
-
-church_pkg for modular operations
-
+🧾 Example
 sql
 Copy
 Edit
--- Procedure Example
+-- Procedure to update attendance
 CREATE OR REPLACE PROCEDURE update_attendance_status (
     p_member_id NUMBER,
     p_service_date DATE,
@@ -221,20 +219,22 @@ BEGIN
     SET status = p_new_status
     WHERE member_id = p_member_id AND service_date = p_service_date;
 END;
-## ✅ Phase VII: Advanced Database Programming and Auditing
-🧩 Objective
-Introduce automation, security, and auditing using PL/SQL triggers and logging mechanisms.
+## ✅ PHASE VII: Advanced Database Programming and Auditing
+📌 Objective
+Enhance automation, restrict critical operations on specific days, and implement user action tracking.
 
-✅ Triggers
-Restriction Trigger on Donations Table:
+📄 Work Done
+Created restriction triggers on donations
 
-Prevents INSERT/UPDATE/DELETE on weekdays and public holidays.
+Prevent INSERT/UPDATE/DELETE on weekdays and holidays
 
-Auditing Trigger:
+Created auditing triggers for logging user actions
 
-Logs user actions to donation_audit table.
+Built holiday_calendar reference table
 
-✅ Auditing Table
+Designed donation_audit table
+
+📁 Tables
 sql
 Copy
 Edit
@@ -246,9 +246,8 @@ CREATE TABLE donation_audit (
     donation_id      NUMBER,
     status           VARCHAR2(10)
 );
-✅ Logic
-Holiday dates stored in holiday_calendar table
 
-Trigger checks SYSDATE and holiday_calendar
-
-Logs each attempt with outcome (Allowed/Denied
+CREATE TABLE holiday_calendar (
+    holiday_date     DATE PRIMARY KEY,
+    description      VARCHAR2(100)
+);
