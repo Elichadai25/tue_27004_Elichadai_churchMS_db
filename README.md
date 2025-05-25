@@ -121,6 +121,54 @@ Extensible for future features like member roles or statuses.
 
 # 5. Presentation & Feedback
 ![Image](https://github.com/user-attachments/assets/f6f86b50-55c6-4d61-8c24-dc03ce495564)
+ ## 🔹 1NF (First Normal Form)
+Ensure all values are atomic (no multiple values in one cell).
+
+Remove multivalued fields like ministries and events.
+
+Convert into separate rows for each value.
+
+## 🔹 2NF (Second Normal Form)
+Must be in 1NF.
+
+Remove partial dependencies (non-key fields depending on part of a composite key).
+
+Create separate tables for:
+
+Members
+
+Ministries
+
+Events
+
+Use associative tables for many-to-many relationships:
+
+MemberMinistries
+
+MemberEvents
+
+## 🔹 3NF (Third Normal Form)
+Must be in 2NF.
+
+Remove transitive dependencies (non-key fields depending on other non-key fields).
+
+Create separate table for Address info if needed (like City and ZipCode).
+
+Link Members to Address using a foreign key (AddressID).
+
+## ✅ Final Tables:
+Members(MemberID, Name, AddressID)
+
+Addresses(AddressID, Street, City, ZipCode)
+
+Ministries(MinistryID, MinistryName)
+
+MemberMinistries(MemberID, MinistryID)
+
+Events(EventID, EventName)
+
+MemberEvents(MemberID, EventID)
+
 
 ## ✅ PHASE IV: Database Creation and Naming
 📌 Objective
