@@ -139,6 +139,10 @@ CREATE PLUGGABLE DATABASE Tue_27004_Elichadai_churchMS_db
 ALTER PLUGGABLE DATABASE Tue_27004_Elichadai_churchMS_db OPEN;
 ALTER PLUGGABLE DATABASE Tue_27004_Elichadai_churchMS_db SAVE STATE;
 ![Image](https://github.com/user-attachments/assets/a701fdf8-8742-4e77-ba6a-f7371fda3e87)
+
+## 2. Oracle Enterprise Manager (OEM) Setup!
+![Image](https://github.com/user-attachments/assets/9672bd8b-b148-4c32-b22f-00249a6c5a12)
+![Image](https://github.com/user-attachments/assets/89084a6d-fe86-41b0-8fc4-d333f07bf065)
 ## ✅ PHASE V: Table Implementation and Data Insertion
 📌 Objective
 Design and populate physical tables aligned with the logical structure of the Church MS system.
