@@ -198,14 +198,20 @@ DDL Operations: CREATE, ALTER
 ![Image](https://github.com/user-attachments/assets/6116f4e9-c201-49a2-bbf3-5d88fadb64e6)
 
 Procedures Created: update_attendance_status
-
+![Image](https://github.com/user-attachments/assets/6413f538-94bd-41a9-9c93-5e2fcab56314)
 Functions Created: get_total_donations
+![Image](https://github.com/user-attachments/assets/6745be0c-6df3-493e-9708-a58d0233818f)
+![Image](https://github.com/user-attachments/assets/c4160d0c-da15-438d-a4a2-edbcb2080f98)
 
 Cursor Usage: Data retrieval
+![Image](https://github.com/user-attachments/assets/c4160d0c-da15-438d-a4a2-edbcb2080f98)
 
 Exception Handling: For data safety
-
+![Image](https://github.com/user-attachments/assets/56222eba-eddb-477b-9e00-1962bd1bb1e6)
+9343)
+![Image](https://github.com/user-attachments/assets/e49102dd-c20d-41e7-bd33-e699e98af32d)
 Packages: church_pkg for code modularity
+![Image](https://github.com/user-attachments/assets/56222eba-eddb-477b-9e00-1962bd1bb1e6)
 
 🧾 Example
 sql
@@ -236,7 +242,13 @@ Created auditing triggers for logging user actions
 Built holiday_calendar reference table
 
 Designed donation_audit table
+![Image](https://github.com/user-attachments/assets/e53edaff-e7c0-464e-9fd2-1f62dd63fa68)
 
+![Image](https://github.com/user-attachments/assets/bce8af54-4e9b-4679-aee6-0dbd189c73c9)
+
+![Image](https://github.com/user-attachments/assets/04d07d3d-c14c-4594-98bb-f25a682b30e0)
+
+![Image](https://github.com/user-attachments/assets/2c77651b-c4c3-4ab4-afb1-ff9d18094da2)
 📁 Tables
 sql
 Copy
