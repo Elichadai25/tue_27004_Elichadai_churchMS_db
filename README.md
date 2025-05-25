@@ -177,6 +177,14 @@ VALUES ('John Doe', 'Male', TO_DATE('1990-04-15', 'YYYY-MM-DD'), '0788000000', '
 -- Attendance
 INSERT INTO attendance (member_id, service_date, service_type, status, remarks)
 VALUES (1, TO_DATE('2025-05-05', 'YYYY-MM-DD'), 'Sunday Worship', 'Present', 'On time');
+## Sample of tables created
+![Image](https://github.com/user-attachments/assets/c64adcff-fd37-4454-bb80-55fa29310134)
+
+![Image](https://github.com/user-attachments/assets/a8faffda-3446-4501-b9c3-026433d3ed31)
+
+![Image](https://github.com/user-attachments/assets/5ec36b47-96dc-49ee-b525-8843cdb5f9d6)
+
+![Image](https://github.com/user-attachments/assets/42034980-44e8-49c7-8397-6f193a876309)
 ## ✅ PHASE VI: Database Interaction and Transactions
 📌 Objective
 Implement real-life DML/DDL operations with procedures, functions, exception handling, and packages.
