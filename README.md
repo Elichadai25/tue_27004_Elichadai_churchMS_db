@@ -193,6 +193,9 @@ Implement real-life DML/DDL operations with procedures, functions, exception han
 DML Operations: INSERT, UPDATE, DELETE
 
 DDL Operations: CREATE, ALTER
+![Image](https://github.com/user-attachments/assets/5cc2c912-76f1-4908-beb0-c30822e582c4)
+
+![Image](https://github.com/user-attachments/assets/6116f4e9-c201-49a2-bbf3-5d88fadb64e6)
 
 Procedures Created: update_attendance_status
 
