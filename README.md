@@ -266,3 +266,7 @@ CREATE TABLE holiday_calendar (
     holiday_date     DATE PRIMARY KEY,
     description      VARCHAR2(100)
 );
+ ## ✅ Conclusion
+This Church Management System streamlines key church operations—like member registration, event tracking, donations, and attendance—using Oracle PL/SQL. It replaces manual processes with a centralized, automated solution that improves efficiency, accuracy, and decision-making. With strong data integrity, auditing, and automation features, the system provides a reliable foundation for current needs and future expansion.
+
+
