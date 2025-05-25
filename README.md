@@ -125,18 +125,6 @@ Extensible for future features like member roles or statuses.
 ## ✅ PHASE IV: Database Creation and Naming
 📌 Objective
 Create a dedicated pluggable database (PDB) with proper naming and super admin access.
-
-📄 Actions Taken
-Created PDB: Tue_27004_Elichadai_churchMS_db
-
-Created Admin User: Elichadai
-
-Assigned Role: DBA
-
-Configured File Name Convert
-
-Opened and Saved PDB State
-
 🧾 SQL Used
 sql
 Copy
@@ -148,9 +136,9 @@ CREATE PLUGGABLE DATABASE Tue_27004_Elichadai_churchMS_db
     '/u01/app/oracle/oradata/CDB1/pdbseed/',
     '/u01/app/oracle/oradata/CDB1/Tue_27004_Elichadai_churchMS_db/'
   );
-
 ALTER PLUGGABLE DATABASE Tue_27004_Elichadai_churchMS_db OPEN;
 ALTER PLUGGABLE DATABASE Tue_27004_Elichadai_churchMS_db SAVE STATE;
+![Image](https://github.com/user-attachments/assets/a701fdf8-8742-4e77-ba6a-f7371fda3e87)
 ## ✅ PHASE V: Table Implementation and Data Insertion
 📌 Objective
 Design and populate physical tables aligned with the logical structure of the Church MS system.
