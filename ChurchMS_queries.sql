@@ -30,7 +30,7 @@ CREATE TABLE Donation (
     notes               VARCHAR2(255),
     CONSTRAINT fk_donation_member
         FOREIGN KEY (member_id)
-        REFERENCES Member(member_id)
+        REFERENCES Members(member_id)
 );
 CREATE TABLE Attendance (
     attendance_id       NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -41,7 +41,7 @@ CREATE TABLE Attendance (
     remarks             VARCHAR2(255),
     CONSTRAINT fk_attendance_member
         FOREIGN KEY (member_id)
-        REFERENCES Member(member_id),
+        REFERENCES Members(member_id),
     CONSTRAINT unq_attendance_unique
         UNIQUE (member_id, service_date) -- A person can't attend the same service twice
 );
@@ -69,18 +69,18 @@ VALUES (3, TO_DATE('2025-05-05', 'YYYY-MM-DD'), 'Sunday Worship', 'Absent', 'Sic
 
 
 
-SELECT * FROM Member;
-NSERT INTO Member (full_name, gender, join_date, phone_number, email)
-VALUES ('John Doe', 'Male', TO_DATE('2023-01-15', 'YYYY-MM-DD'), '0788000001', 'john.doe@example.com');
+SELECT * FROM Members;
+INSERT INTO Members (first_name, last_name, gender, join_date, phone, email)
+VALUES ('John', 'Doe', 'M', TO_DATE('2023-01-15', 'YYYY-MM-DD'), '0788000001', 'john.doe@example.com');
 
-INSERT INTO Member (full_name, gender, join_date, phone_number, email)
-VALUES ('Jane Smith', 'Female', TO_DATE('2023-03-10', 'YYYY-MM-DD'), '0788000002', 'jane.smith@example.com');
+INSERT INTO Members (first_name, last_name, gender, join_date, phone, email)
+VALUES ('Jane', 'Smith', 'F', TO_DATE('2023-03-10', 'YYYY-MM-DD'), '0788000002', 'jane.smith@example.com');
 
-INSERT INTO Member (full_name, gender, join_date, phone_number, email)
-VALUES ('Joseph Paul', 'Male', TO_DATE('2024-11-20', 'YYYY-MM-DD'), '0788000003', 'joseph.paul@example.com');
+INSERT INTO Members (first_name, last_name, gender, join_date, phone, email)
+VALUES ('Joseph', 'Paul', 'M', TO_DATE('2024-11-20', 'YYYY-MM-DD'), '0788000003', 'joseph.paul@example.com');
 
 
-SELECT member_id, full_name FROM Member;
+SELECT member_id, first_name, last_name FROM Members;
 
 INSERT INTO Attendance (member_id, service_date, service_type, status, remarks)
 VALUES (1, TO_DATE('2025-05-05', 'YYYY-MM-DD'), 'Sunday Worship', 'Present', 'On time');
@@ -95,14 +95,14 @@ INSERT INTO Donation (member_id, donation_date, amount, donation_type, payment_m
 VALUES (3, TO_DATE('2025-05-05', 'YYYY-MM-DD'), 10000, 'Fundraising', 'Bank', 'Building fund');
 
 
-INSERT INTO members (full_name, gender, date_of_birth, contact_number, email)
-VALUES ('John Doe', 'Male', TO_DATE('1990-04-15', 'YYYY-MM-DD'), '0788000000', 'johndoe@gmail.com');
+INSERT INTO Members (first_name, last_name, gender, date_of_birth, phone, email)
+VALUES ('John', 'Doe', 'M', TO_DATE('1990-04-15', 'YYYY-MM-DD'), '0788000000', 'johndoe@gmail.com');
 
-INSERT INTO members (full_name, gender, date_of_birth, contact_number, email)
-VALUES ('Jane Smith', 'Female', TO_DATE('1992-07-10', 'YYYY-MM-DD'), '0788000001', 'janesmith@gmail.com');
+INSERT INTO Members (first_name, last_name, gender, date_of_birth, phone, email)
+VALUES ('Jane', 'Smith', 'F', TO_DATE('1992-07-10', 'YYYY-MM-DD'), '0788000001', 'janesmith@gmail.com');
 
-INSERT INTO members (full_name, gender, date_of_birth, contact_number, email)
-VALUES ('David Iradukunda', 'Male', TO_DATE('1985-12-20', 'YYYY-MM-DD'), '0788000002', 'davidiradukunda@gmail.com');
+INSERT INTO Members (first_name, last_name, gender, date_of_birth, phone, email)
+VALUES ('David', 'Iradukunda', 'M', TO_DATE('1985-12-20', 'YYYY-MM-DD'), '0788000002', 'davidiradukunda@gmail.com');
 
 
 INSERT INTO pastors (full_name, assigned_church, contact_number, email)
@@ -115,7 +115,7 @@ INSERT INTO pastors (full_name, assigned_church, contact_number, email)
 VALUES ('Pastor Alice Uwimana', 'Shalom Church', '0788555666', 'alice@shalom.org');
 
 INSERT INTO services (service_date, topic, pastor_id)
-VALUES (TO_DATE('2025-06-01', 'YYYY-M
+VALUES (TO_DATE('2025-06-01', 'YYYY-MM-DD'), 'Faith and Healing', 1);
 
 INSERT INTO Attendance (member_id, service_date, service_type, status, remarks)
 VALUES (2, TO_DATE('2025-05-05', 'YYYY-MM-DD'), 'Sunday Worship', 'Late', 'Arrived 10 mins late');
@@ -143,18 +143,18 @@ VALUES (3, 4000);
 select * from ATTENDANCE;
 
 
-UPDATE members
-SET contact_number = '0788999888'
-WHERE full_name = 'John Doe';
+UPDATE Members
+SET phone = '0788999888'
+WHERE first_name = 'John' AND last_name = 'Doe';
 
 
-UPDATE members
-SET contact_number = '0788999888'
-WHERE full_name = 'John Doe';
+UPDATE Members
+SET phone = '0788999888'
+WHERE first_name = 'John' AND last_name = 'Doe';
 
-UPDATE members
-SET contact_number = '0788999888'
-WHERE full_name = 'John Doe';
+UPDATE Members
+SET phone = '0788999888'
+WHERE first_name = 'John' AND last_name = 'Doe';
 
 
 DELETE FROM offerings
@@ -162,20 +162,20 @@ WHERE offering_id = 3;
 
 
 -- UPDATE example: Update a member's contact
-UPDATE members
-SET contact_number = '0788999888'
-WHERE full_name = 'John Doe';
+UPDATE Members
+SET phone = '0788999888'
+WHERE first_name = 'John' AND last_name = 'Doe';
 
 -- DELETE example: Remove an offering with ID 3 (if exists)
 DELETE FROM offerings
 WHERE offering_id = 3;
 
 -- ALTER: Add a column for occupation in members
-ALTER TABLE members
+ALTER TABLE Members
 ADD occupation VARCHAR2(100);
 
 -- DROP: Drop the occupation column (if needed)
--- ALTER TABLE members DROP COLUMN occupation;
+-- ALTER TABLE Members DROP COLUMN occupation;
 
 -- Running total of donations
 SELECT member_id, donation_date, amount,
@@ -183,7 +183,7 @@ SELECT member_id, donation_date, amount,
 FROM donation;
 
 
-- Running total of donations
+-- Running total of donations
 SELECT member_id, donation_date, amount,
        SUM(amount) OVER (PARTITION BY member_id ORDER BY donation_date) AS running_total
 FROM donation;
@@ -204,14 +204,14 @@ END;
 
 DECLARE
     CURSOR c_members IS
-        SELECT member_id, full_name FROM members;
+        SELECT member_id, first_name, last_name FROM Members;
     rec c_members%ROWTYPE;
 BEGIN
     OPEN c_members;
     LOOP
         FETCH c_members INTO rec;
-        EXIT WHEN c_members%OTFOUND;
-DBMS_OUTPUT.PUT_LINE('ID: ' || rec.member_id || ' - Name: ' || rec.full_name);
+        EXIT WHEN c_members%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE('ID: ' || rec.member_id || ' - Name: ' || rec.first_name || ' ' || rec.last_name);
     END LOOP;
     CLOSE c_members;
 END;
@@ -219,14 +219,14 @@ END;
 
 DECLARE
     CURSOR c_members IS
-        SELECT member_id, full_name FROM members;
+        SELECT member_id, first_name, last_name FROM Members;
     rec c_members%ROWTYPE;
 BEGIN
     OPEN c_members;
     LOOP
         FETCH c_members INTO rec;
         EXIT WHEN c_members%NOTFOUND;
-        DBMS_OUTPUT.PUT_LINE('ID: ' || rec.member_id || ' - Name: ' || rec.full_name);
+        DBMS_OUTPUT.PUT_LINE('ID: ' || rec.member_id || ' - Name: ' || rec.first_name || ' ' || rec.last_name);
     END LOOP;
     CLOSE c_members;
 END;
@@ -234,14 +234,14 @@ END;
 
 DECLARE
     CURSOR c_members IS
-        SELECT member_id, full_name FROM members;
+        SELECT member_id, first_name, last_name FROM Members;
     rec c_members%ROWTYPE;
 BEGIN
     OPEN c_members;
     LOOP
- FETCH c_members INTO rec;
+        FETCH c_members INTO rec;
         EXIT WHEN c_members%NOTFOUND;
-        DBMS_OUTPUT.PUT_LINE('ID: ' || rec.member_id || ' - Name: ' || rec.full_name);
+        DBMS_OUTPUT.PUT_LINE('ID: ' || rec.member_id || ' - Name: ' || rec.first_name || ' ' || rec.last_name);
     END LOOP;
     CLOSE c_members;
 END;
@@ -293,7 +293,6 @@ INSERT INTO holidays VALUES (TO_DATE('2025-06-28', 'YYYY-MM-DD'), 'Church Annive
 
 
 
-CREATE TABLE audit_log (
 CREATE TABLE audit_log (
     audit_id       NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     user_id        VARCHAR2(50),
@@ -380,14 +379,14 @@ BEGIN
     -- If weekday (Mon–Fri) or a holiday, restrict
     IF v_day IN ('MON', 'TUE', 'WED', 'THU', 'FRI') OR v_holiday_count > 0 THEN
         -- Audit as DENIED
-        INSERT INTO AUDIT_LOG (user_name, operation, operation_date, status, table_name)
+        INSERT INTO AUDIT_LOG (user_id, action_type, action_date, status, table_name)
         VALUES (USER, 'INSERT/UPDATE/DELETE ON Attendance', SYSDATE, 'DENIED', 'Attendance');
 
         -- Raise error
         RAISE_APPLICATION_ERROR(-20003, 'DML operations on Attendance table are not allowed on weekdays or holidays.');
     ELSE
         -- Audit as ALLOWED
-        INSERT INTO AUDIT_LOG (user_name, operation, operation_date, status, table_name)
+        INSERT INTO AUDIT_LOG (user_id, action_type, action_date, status, table_name)
         VALUES (USER, 'INSERT/UPDATE/DELETE ON Attendance', SYSDATE, 'ALLOWED', 'Attendance');
     END IF;
 END;
